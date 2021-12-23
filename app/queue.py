@@ -1,22 +1,7 @@
 import cmd, sys
 from turtle import bye
-from opera import Opera
-class Call:
-    id = None
-    state = None
-    #states: answered , ringing , waiting , received
-    def __init__(self,id):
-        self.state = "received"
-        self.id = id
-    def alternateState(self,state):
-        self.state = state
-
-    def getId(self):
-        return self.id
-
-    def getState(self):
-        return self.state
-
+from app.opera import Opera
+from app.calling import  Call
 class QueueShell(cmd.Cmd):
     intro = "Welcome to the Queue"
     prompt = "(Queue) "
@@ -24,7 +9,7 @@ class QueueShell(cmd.Cmd):
     operators = [Opera("A"), Opera("B")]
     queue = []
     def do_call(self,id):
-        sys.stdout.write("call {} received\n".format(id))
+        sys.stdout.write("Call {} received\n".format(id))
         for op in self.operators:
             if op.getNumber() == None:
                 call = Call(id)
