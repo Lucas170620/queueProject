@@ -1,4 +1,3 @@
-from app.queue import QueueShell
-
+from app.queue import Queue
 if __name__ == '__main__':
-    QueueShell().cmdloop()
+    Queue().cmdloop()
